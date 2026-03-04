@@ -1,6 +1,6 @@
 # 🏎️ F1 Web - Plataforma Informativa e interactiva de Fórmula 1
 
-F1 Web es una página web desarrollada como proyecto académico conjunto a otros compañeros que presenta información relacionada con el mundo de la Fórmula 1. 
+F1 Web es una página web desarrollada como proyecto académico en conjunto a otros compañeros, que presenta información relacionada con el mundo de la Fórmula 1. 
 
 El sitio integra distintas secciones organizadas para ofrecer contenido estructurado sobre la temporada, equipos, pilotos, noticias y estadísticas, aplicando principios de diseño web y desarrollo frontend.
 
