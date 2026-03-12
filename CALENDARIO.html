@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/STYLES.css">
+    <link rel="icon" href="https://wallpaperaccess.com/full/2180263.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>F1 - Official Fanpage</title>
+</head>
+
+
+<body>
+
+
+    <!-- Creacion del Navbar de la pagina -->
+    <nav class="navbar">
+        <!-- Colocamos logo de la F1 en la navbar -->
+        <div class="logo"><img src="img/F1_75_Logo.png" alt="logo formula 1"></div>
+        <ul>
+            <li><a href="INICIO.html">Inicio</a></li>
+            <li><a href="ESCUDERIAS.html">Escuderias</a></li>
+            <li><a href="CARROS.html">CARROS</a></li>
+            <li><a href="CALENDARIO.html" class="active">Calendario</a></li>
+            <li><a href="RESULTADOS.html">Resultados</a></li>
+            <li><a href="HISTORICO.html" id="historico-link">Historico</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Contenido principal de la pestaña de CALENDARIO -->
+    <div class="main-content">
+        <!-- Texto informativo antes del calendario -->
+        <div class="info-section">
+            <div class="text-container">
+                <p> La 76.ª temporada del Campeonato Mundial de Fórmula 1 comenzará en Australia y continuará en China y
+                    Japón. Luego, se trasladará a Baréin y Arabia Saudita. El campeonato visitará 25 sedes diferentes.
+                </p>
+                <p>¿Quién seguirá los pasos de Max Verstappen y se coronará campeón en 2025?</p>
+            </div>
+        </div>
+
+        <div class="calendar-section" id="calendar-title">CALENDARIO FORMULA 1 2025<span class="formula-year"></span>
+            </h2>
+            <button class="map-button" onclick="toggleMap()">Ver en el mapa</button>
+            <!-- Botón para mostrar/ocultar el mapa -->
+            <div class="red-line"></div>
+
+
+            <!-- Contenedor del mapa mundi-->
+            <div id="map-container">
+                <img src="https://th.bing.com/th/id/R.4baffcf59b4e0e3a3deb624b9bc85c0d?rik=o6Tenv5hxBkigA&riu=http%3a%2f%2fgetdrawings.com%2fvectors%2fmapamundi-vector-png-33.png&ehk=opeUVRuctXgsNmaRe%2fEaL%2fDNtY48l%2fYwIc8gMayA7eE%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
+                    alt="Mapa mundial" id="world-map">
+
+                <!-- Aquí se insertarán los puntos de las carreras con JavaScript -->
+                <div id="map-points"></div>
+            </div>
+
+
+            <!-- Popup para información de la carrera al presionar un punto -->
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="close-popup" onclick="closePopup()">&times;</span>
+                    <h3 id="popup-title"></h3>
+                    <p id="popup-info"></p>
+                    <img id="popup-image" src="" alt="Circuito">
+                </div>
+            </div>
+
+            <!-- Contenedor para las tarjetas de las carreras con toda la informacion de las mismas -->
+            <div class="race-grid">
+
+                <!--Round 1-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 1</div>
+                        <div class="round-date">14-16 de marzo</div>
+                        <div class="round-location">Circuito: Albert Park</div>
+                        <div class="round-details">GP Australia</div>
+                    </div>
+                </div>
+
+                <!--Round 2-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 2</div>
+                        <div class="round-date">21-23 de marzo</div>
+                        <div class="round-location">Circuito: Shanghai International</div>
+                        <div class="round-details">GP China</div>
+                    </div>
+                </div>
+
+                <!--Round 3-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 3</div>
+                        <div class="round-date">4-6 de abril</div>
+                        <div class="round-location">Circuito: Suzuka</div>
+                        <div class="round-details">GP Japon</div>
+                    </div>
+                </div>
+
+                <!--Round 4-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 4</div>
+                        <div class="round-date">11-13 de abril</div>
+                        <div class="round-location">Circuito: Bahrain Internacional</div>
+                        <div class="round-details">GP Bahrain</div>
+                    </div>
+                </div>
+
+                <!--Round 5-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 5</div>
+                        <div class="round-date">18-20 de abril</div>
+                        <div class="round-location">Circuito: Jeddah Corniche</div>
+                        <div class="round-details">GP Arabia Saudita</div>
+                    </div>
+                </div>
+
+                <!--Round 6-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 6</div>
+                        <div class="round-date">2-4 de mayo</div>
+                        <div class="round-location">Circuito: Miami International</div>
+                        <div class="round-details">GP Miami</div>
+                    </div>
+                </div>
+
+                <!--Round 7-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 7</div>
+                        <div class="round-date">16-18 de mayo</div>
+                        <div class="round-location">Circuito: Internacional Enzo y Dino Ferrari</div>
+                        <div class="round-details">GP Emilia Romagna</div>
+                    </div>
+                </div>
+
+                <!--Round 8-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 8</div>
+                        <div class="round-date">23-25 de mayo</div>
+                        <div class="round-location">Circuito: Circuito de Monaco</div>
+                        <div class="round-details">GP Monaco</div>
+                    </div>
+                </div>
+
+                <!--Round 9-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 9</div>
+                        <div class="round-date">30-1 de junio</div>
+                        <div class="round-location">Circuito: Catalunya</div>
+                        <div class="round-details">GP España</div>
+                    </div>
+                </div>
+
+                <!--Round 10-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 10</div>
+                        <div class="round-date">13-15 de junio</div>
+                        <div class="round-location">Circuito: Gilles Villeneuve</div>
+                        <div class="round-details">GP Canada</div>
+                    </div>
+                </div>
+
+                <!--Round 11-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 11</div>
+                        <div class="round-date">27-29 de junio</div>
+                        <div class="round-location">Circuito: Red Bull Ring</div>
+                        <div class="round-details">GP Austria</div>
+                    </div>
+                </div>
+
+                <!--Round 12-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 12</div>
+                        <div class="round-date">4-6 de julio</div>
+                        <div class="round-location">Circuito: Silverstone</div>
+                        <div class="round-details">GP Gran Bretaña</div>
+                    </div>
+                </div>
+
+                <!--Round 13-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 13</div>
+                        <div class="round-date">25-27 de julio</div>
+                        <div class="round-location">Circuito: Spa-Francorchamps</div>
+                        <div class="round-details">GP Belgica</div>
+                    </div>
+                </div>
+
+                <!--Round 14-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 14</div>
+                        <div class="round-date">1-3 de agosto</div>
+                        <div class="round-location">Circuito: Hungaroring</div>
+                        <div class="round-details">GP Hungria</div>
+                    </div>
+                </div>
+
+                <!--Round 15-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 15</div>
+                        <div class="round-date">29-31 de agosto</div>
+                        <div class="round-location">Circuito: Zandvoort</div>
+                        <div class="round-details">GP Paises Bajos</div>
+                    </div>
+                </div>
+
+                <!--Round 16-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 16</div>
+                        <div class="round-date">5-7 de septiembre</div>
+                        <div class="round-location">Circuito: Monza</div>
+                        <div class="round-details">GP Italia</div>
+                    </div>
+                </div>
+
+                <!--Round 17-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 17</div>
+                        <div class="round-date">19-21 de septiembre</div>
+                        <div class="round-location">Circuito: Baku City</div>
+                        <div class="round-details">GP Azerbaijan</div>
+                    </div>
+                </div>
+
+                <!--Round 18-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 18</div>
+                        <div class="round-date">3-5 de octubre</div>
+                        <div class="round-location">Circuito: Marina Bay</div>
+                        <div class="round-details">GP Singapur</div>
+                    </div>
+                </div>
+
+                <!--Round 19-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 19</div>
+                        <div class="round-date">17-19 de octubre</div>
+                        <div class="round-location">Circuito: Las Américas</div>
+                        <div class="round-details">GP Estados Unidos</div>
+                    </div>
+                </div>
+
+                <!--Round 20-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 20</div>
+                        <div class="round-date">24-26 de octubre</div>
+                        <div class="round-location">Circuito: Hermanos Rodríguez</div>
+                        <div class="round-details">GP Ciudad de Mexico</div>
+                    </div>
+                </div>
+
+                <!--Round 21-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 21</div>
+                        <div class="round-date">7-9 de noviembre</div>
+                        <div class="round-location">Circuito: Jose Carlos Pace</div>
+                        <div class="round-details">GP Sao Pablo</div>
+                    </div>
+                </div>
+
+                <!--Round 22-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 22</div>
+                        <div class="round-date">21-22 de noviembre</div>
+                        <div class="round-location">Circuito: Las Vegas</div>
+                        <div class="round-details">GP Las Vegas</div>
+                    </div>
+                </div>
+
+                <!--Round 23-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 23</div>
+                        <div class="round-date">28-30 de noviembre</div>
+                        <div class="round-location">Circuito: Lusail International</div>
+                        <div class="round-details">GP Qatar</div>
+                    </div>
+                </div>
+
+                <!--Round 24-->
+                <div class="race-card">
+                    <div class="round-header">
+                        <div class="round-number">RACE 24</div>
+                        <div class="round-date">5-7 de diciembre</div>
+                        <div class="round-location">Circuito: Yas Marina</div>
+                        <div class="round-details">GP Abu Dhabi</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Creacion del boton y contenedor del chat con IA -->
+    <div id="chatbot-container">
+        <button id="chatbot-button">💬</button>
+
+        <div id="chatbox" class="hidden">
+
+            <div id="chatbox-header">EscuderIA</div>
+            <div id="chatbox-messages"></div>
+            <input type="text" id="chatbox-input" placeholder="Escribe tu mensaje...">
+
+            <div id="chatbox-controls">
+                <button id="new-chat">Nuevo Chat</button>
+                <button id="send-message">Enviar</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Creacion del Footer de la pagina -->
+    <footer class="footer">
+        <!--Redes Sociales de la formula 1 y sus simbolos-->
+        <div class="social-media">
+            <a href="https://www.instagram.com/f1/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.facebook.com/Formula1/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.tiktok.com/@f1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://x.com/f1" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+
+        <!--Derechos de autor de la pagina-->
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+        <ul>
+            <li>Cáceres Uriel - </li>
+            <li>Castillo Diego - </li>
+            <li>Correia Gustavo - </li>
+            <li>Hernandez Samuel - </li>
+            <li>Varela Edwin.</li>
+            <br><br>
+            <li>Clase de Ing de Software II.</li>
+        </ul>
+    </footer>
+
+
+    <!-- Llamada a los archivos Java Script para el funcionamiento de de la pestaña CALENDARIO-->
+    <script src="js/script.js"></script> <!--Script para las funciones generales de esta pestaña-->
+    <script src="js/CHATBOT.js"></script> <!--Script para hacer la llamada a la API de chatbot (Gemini 2.0 flash)-->
+
+
+</body>
+
+</html>

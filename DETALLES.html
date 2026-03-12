@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/STYLES.css">
+    <link rel="icon" href="https://wallpaperaccess.com/full/2180263.png" type="image/x-icon">
+    <title>Detalles de la Carrera</title>
+</head>
+
+<body>
+    <h1 id="race-name" style="text-align: center;">Detalles de la Carrera</h1>
+    <table class="details-table">
+        <thead>
+            <tr>
+                <th>Posición</th>
+                <th>Piloto</th>
+                <th>Escudería</th>
+                <th>Puntos</th>
+                <th>Vueltas</th>
+                <th>Tiempo Total</th>
+                <th>Vuelta Rápida</th>
+                <th>Triunfos</th>
+                <th>Podios</th>
+            </tr>
+        </thead>
+        <tbody id="results-body">
+            <!-- Los resultados se cargarán aquí -->
+        </tbody>
+    </table>
+
+    <!-- Contenedor para el gráfico -->
+    <h2 style="text-align: center;">Gráfico de Resultados</h2>
+    <div style="text-align: center;">
+        <label for="chartType">Selecciona estadística:</label>
+        <select id="chartType">
+            <option value="points">Puntos</option>
+            <option value="podiums">Podios</option>
+            <option value="laps">Vueltas</option>
+            <option value="wins">Triunfos</option>
+            <option value="fastestLap">Vuelta Rápida</option>
+            <option value="totalTime">Tiempo Total</option>
+        </select>
+    </div>
+    <div style="display: flex; justify-content: center;">
+        <canvas id="raceChart" width="600" height="245"></canvas>
+    </div>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="js/Graficos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

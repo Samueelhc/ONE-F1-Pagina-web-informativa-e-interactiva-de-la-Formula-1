@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/STYLES.css">
+    <link rel="icon" href="https://wallpaperaccess.com/full/2180263.png" type="image/x-icon">
+    <title>F1 - Official Fanpage</title>
+</head>
+
+
+<body>
+
+    <!-- Creacion del Navbar de la pagina -->
+    <nav class="navbar">
+        <!-- Colocamos logo de la F1 en la navbar -->
+        <div class="logo"><img src="img/F1_75_Logo.png" alt="logo formula 1"></div>
+        <ul>
+            <li><a href="INICIO.html">Inicio</a></li>
+            <li><a href="ESCUDERIAS.html" class="active" id="escuderias-link">Escuderias</a></li>
+            <li><a href="CARROS.html">CARROS</a></li>
+            <li><a href="CALENDARIO.html">Calendario</a></li>
+            <li><a href="RESULTADOS.html">Resultados</a></li>
+            <li><a href="HISTORICO.html">Historico</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Contenido principal de la pestaña de ESCUDERIAS -->
+    <div class="main-content" id="main-content">
+
+        <h1>ESCUDERIAS Y PILOTOS DE LA FORMULA 1</h1>
+        <div class="red-line"></div>
+        <h2>Selecciona una escudería para ver más detalles</h2>
+        <!-- Creacion de la Barra de búsqueda -->
+        <input type="text" id="searchInput" placeholder="Buscar escudería..." class="search-bar">
+
+
+        <div class="escuderias-grid" id="escuderias-grid">
+            <!-- Las escuderías se cargarán dinámicamente aquí -->
+        </div>
+
+        <div class="red-line"></div>
+
+        <!-- Contenedor para mostrar los detalles de la escudería seleccionada -->
+        <div id="escuderia-detalle" style="display: none;">
+            <div class="escuderia-info-container"> <!-- Contenedor nuevo -->
+
+                <div class="escuderia-info"> <!-- Columna izquierda -->
+                    <h2 id="escuderia-nombre"></h2>
+                    <p id="escuderia-descripcion"></p>
+                    <p id="escuderia-nacionalidad"></p>
+                </div>
+
+                <div class="pilotos-container"> <!-- Columna derecha -->
+                    <h2>Pilotos</h2>
+                    <div id="pilotos-escuderia" class="pilotos-grid"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Creacion del boton y contenedor del chat con IA -->
+    <div id="chatbot-container">
+        <button id="chatbot-button">💬</button>
+
+        <div id="chatbox" class="hidden">
+
+            <div id="chatbox-header">EscuderIA</div>
+            <div id="chatbox-messages"></div>
+            <input type="text" id="chatbox-input" placeholder="Escribe tu mensaje...">
+
+            <div id="chatbox-controls">
+                <button id="new-chat">Nuevo Chat</button>
+                <button id="send-message">Enviar</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Creacion del Footer de la pagina -->
+    <footer class="footer">
+        <!--Redes Sociales de la formula 1 y sus simbolos-->
+        <div class="social-media">
+            <a href="https://www.instagram.com/f1/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.facebook.com/Formula1/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.tiktok.com/@f1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://x.com/f1" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+
+        <!--Derechos de autor de la pagina-->
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+        <ul>
+            <li>Cáceres Uriel - </li>
+            <li>Castillo Diego - </li>
+            <li>Correia Gustavo - </li>
+            <li>Hernandez Samuel - </li>
+            <li>Varela Edwin.</li>
+            <br><br>
+            <li>Clase de Ing de Software II.</li>
+        </ul>
+    </footer>
+
+
+    <!-- Llamada a los archivos Java Script para el funcionamiento de de la pestaña ESCUDERIAS-->
+    <script src="js/escuderias.js"></script> <!--Script para las funciones generales de esta pestaña-->
+    <script src="js/CHATBOT.js"></script> <!--Script para hacer la llamada a la API de chatbot (Gemini 2.0 flash)-->
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/STYLES.css">
+    <link rel="icon" href="https://wallpaperaccess.com/full/2180263.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>F1 - Official Fanpage (BETA)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+
+<body class="results">
+
+
+    <!-- Creacion del Navbar de la pagina -->
+    <nav class="navbar">
+        <!-- Colocamos logo de la F1 en la navbar -->
+        <div class="logo"><img src="img/F1_75_Logo.png" alt="Logo Formula 1"></div>
+        <ul>
+            <li><a href="INICIO.html">Inicio</a></li>
+            <li><a href="ESCUDERIAS.html">Escuderías</a></li>
+            <li><a href="CARROS.html">Carros</a></li>
+            <li><a href="CALENDARIO.html">Calendario</a></li>
+            <li><a href="RESULTADOS.html" class="active">Resultados</a></li>
+            <li><a href="HISTORICO.html">Histórico</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Contenido principal de la pestaña de RESULTADOS -->
+    <div class="main-content">
+        <h1>RESULTADO DE LAS CARRERAS</h1>
+        <div class="red-line"></div>
+        <p>Consulta los resultados de las temporadas 2020 - 2025.</p>
+
+        <!-- Selector de temporada -->
+        <select id="season-select">
+            <option value="" disabled selected>Seleccionar temporada</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+        </select>
+
+        <!-- Selector de carrera (oculto por defecto) -->
+        <div id="race-container" style="display: none;">
+            <select id="race-select">
+                <option value="" disabled selected>Seleccionar carrera</option>
+            </select>
+        </div>
+
+        <!-- Botón "Ver más detalles" -->
+        <button id="more-details-btn" class="details-btn" style="display: none;">Ver más detalles de la carrera</button>
+
+        <h2 id="race-name"></h2>
+
+        <!-- Tabla de resultados -->
+        <table class="details-table" id="results-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Piloto</th>
+                    <th>Escudería</th>
+                    <th>Puntos</th>
+                    <th>Vueltas</th>
+                </tr>
+            </thead>
+            <tbody id="results-body"></tbody>
+        </table>
+
+        <!-- Gráfica -->
+        <div class="chart-container">
+            <canvas id="results-chart"></canvas>
+        </div>
+
+        <!-- Detalles adicionales -->
+        <div id="more-details" class="more-details"></div>
+    </div>
+
+
+    <!-- Creacion del boton y contenedor del chat con IA -->
+    <div id="chatbot-container">
+        <button id="chatbot-button">💬</button>
+
+        <div id="chatbox" class="hidden">
+
+            <div id="chatbox-header">EscuderIA</div>
+            <div id="chatbox-messages"></div>
+            <input type="text" id="chatbox-input" placeholder="Escribe tu mensaje...">
+
+            <div id="chatbox-controls">
+                <button id="new-chat">Nuevo Chat</button>
+                <button id="send-message">Enviar</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Creacion del Footer de la pagina -->
+    <footer class="footer">
+        <!--Redes Sociales de la formula 1 y sus simbolos-->
+        <div class="social-media">
+            <a href="https://www.instagram.com/f1/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.facebook.com/Formula1/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.tiktok.com/@f1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://x.com/f1" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+
+        <!--Derechos de autor de la pagina-->
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+        <ul>
+            <li>Cáceres Uriel - </li>
+            <li>Castillo Diego - </li>
+            <li>Correia Gustavo - </li>
+            <li>Hernandez Samuel - </li>
+            <li>Varela Edwin.</li>
+            <br><br>
+            <li>Clase de Ing de Software II.</li>
+        </ul>
+    </footer>
+
+
+    <!-- Carga del script de la API de resultados (Jolpica) -->
+    <script src="js/API-RESULTS.js"></script>
+
+    <!--Pequeño script para manejar el mostrar/ocultar de algunas funciones de esta pestaña-->
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // Obtener referencias a los elementos del DOM
+            const seasonSelect = document.getElementById("season-select"); // Selector de temporada
+            const raceContainer = document.getElementById("race-container"); // Contenedor del selector de carrera
+            const raceSelect = document.getElementById("race-select"); // Selector de carrera
+            const moreDetailsBtn = document.getElementById("more-details-btn"); // Botón "Ver más detalles"
+            const resultsTable = document.getElementById("results-table"); // Tabla de resultados
+            const resultsBody = document.getElementById("results-body"); // Cuerpo de la tabla de resultados
+            const raceName = document.getElementById("race-name"); // Nombre de la carrera seleccionada
+            const moreDetails = document.getElementById("more-details"); // Contenedor de detalles adicionales
+            const resultsChart = document.getElementById("results-chart").getContext("2d"); //Para las gráficas
+
+            let chartInstance = null; // Variable para almacenar la instancia del gráfico y su limpieza
+
+
+            // Manejo del cambio de temporada
+            seasonSelect.addEventListener("change", () => {
+                // Ocultar y resetear elementos al cambiar de temporada
+                raceContainer.style.display = "none";
+                raceSelect.innerHTML = '<option value="" disabled selected>Seleccionar carrera</option>';
+                moreDetailsBtn.style.display = "none"; // Ocultar el botón "Ver más detalles"
+                resultsTable.style.display = "none"; // Ocultar la tabla de resultados
+                resultsBody.innerHTML = ""; // Limpiar el contenido de la tabla de resultados
+                raceName.textContent = ""; // Limpiar el nombre de la carrera
+                moreDetails.style.display = "none"; // Ocultar los detalles adicionales
+
+                // Limpiar gráfico si existe
+                if (chartInstance) {
+                    chartInstance.destroy(); // Destruir la instancia del gráfico
+                    chartInstance = null; // Resetear la variable del gráfico
+                }
+
+                // Mostrar el contenedor del selector de carrera si se selecciona una temporada
+                if (seasonSelect.value) {
+                    raceContainer.style.display = "block";
+                    fetchRaces(seasonSelect.value); // Cargar carreras de la temporada
+                }
+            });
+
+            // Manejo del cambio de carrera
+            raceSelect.addEventListener("change", () => {
+                if (raceSelect.value) {
+                    moreDetailsBtn.style.display = "inline-block"; // Mostrar el botón "Ver más detalles"
+                    resultsTable.style.display = "table"; // Mostrar la tabla de resultados
+                    fetchRaceResults(seasonSelect.value, raceSelect.value); // Cargar resultados
+                } else {
+                    moreDetailsBtn.style.display = "none"; // Ocultar el botón "Ver más detalles"
+                    resultsTable.style.display = "none"; // Ocultar la tabla de resultados
+                }
+            });
+        });
+
+    </script>
+
+
+    <!-- Llamada a los archivos Java Script para el funcionamiento de de la pestaña RESULTADOS-->
+    <script src="js/CHATBOT.js"></script> <!--Script para hacer la llamada a la API de chatbot (Gemini 2.0 flash)-->
+
+
+</body>
+
+
+</html>

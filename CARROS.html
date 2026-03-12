@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/STYLES.css">
+    <link rel="icon" href="https://wallpaperaccess.com/full/2180263.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>F1 - Official Fanpage</title>
+</head>
+
+
+<body>
+
+
+    <!-- Creacion del Navbar de la pagina -->
+    <nav class="navbar">
+        <!-- Colocamos logo de la F1 en la navbar -->
+        <div class="logo"><img src="img/F1_75_Logo.png" alt="logo formula 1"></div>
+        <ul>
+            <li><a href="INICIO.html">Inicio</a></li>
+            <li><a href="ESCUDERIAS.html">Escuderias</a></li>
+            <li><a href="CARROS.html" id="carros-link" class="active">Carros</a></li>
+            <li><a href="CALENDARIO.html">Calendario</a></li>
+            <li><a href="RESULTADOS.html">Resultados</a></li>
+            <li><a href="HISTORICO.html">Historico</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Contenido principal de la pestaña de CARROS -->
+    <div class="main-content">
+
+        <h1>DESCRIPCION DE LOS CARROS</h1>
+        <div class="red-line"></div>
+
+        <!-- Botón para obtener más información de los carros -->
+        <div class="boton-container">
+            <button id="mas-info-btn" class="info-btn" style="display: none;">¿Deseas obtener más información?</button>
+        </div>
+
+
+        <!-- Contenedor para la información de los carros (la info viene del javascript) -->
+        <div id="carros-info" class="carros-info"></div>
+
+        <!-- Contenedor para la información adicional -->
+        <div id="info-extra" class="info-extra" style="display: none;">
+            <!-- Imagen del carro y los puntos interactivos -->
+            <div class="carro-imagen-container">
+                <img src="img/fotosPyE/partescochef1/cochef1.png" alt="Coche de Fórmula 1" class="carro-imagen-grande">
+
+                <!-- Puntos interactivos -->
+                <div class="puntos-interactivos">
+                    <div class="punto" data-info="Motor" style="top: 40%; left: 80%;"></div>
+                    <div class="punto" data-info="Neumáticos" style="top: 55%; left: 90%;"></div>
+                    <div class="punto" data-info="Velocidad" style="top: 70%; left: 70%;"></div>
+                    <div class="punto" data-info="Peso" style="top: 40%; left: 60%;"></div>
+                    <div class="punto" data-info="Curiosidades" style="top: 10%; left: 10%;"></div>
+                    <div class="punto" data-info="Freno" style="top: 65%; left: 35%;"></div>
+                </div>
+
+                <!-- Contenedor para las mini tarjetas -->
+                <div id="mini-tarjetas-container" class="mini-tarjetas-container"></div>
+            </div>
+
+            <!-- Contenedor para mostrar la información al hacer clic en un punto -->
+            <div id="info-punto" class="info-punto" style="display: none;">
+                <img id="info-punto-imagen" src="" alt="Imagen de la parte del coche">
+                <p id="info-punto-texto"></p>
+            </div>
+
+            <!-- Botón para volver a ver los carros -->
+            <button id="volver-carros-btn" class="info-btn">Volver a ver carros</button>
+        </div>
+
+    </div>
+
+
+    <!-- Creacion del boton y contenedor del chat con IA -->
+    <div id="chatbot-container">
+        <button id="chatbot-button">💬</button>
+
+        <div id="chatbox" class="hidden">
+
+            <div id="chatbox-header">EscuderIA</div>
+            <div id="chatbox-messages"></div>
+            <input type="text" id="chatbox-input" placeholder="Escribe tu mensaje...">
+
+            <div id="chatbox-controls">
+                <button id="new-chat">Nuevo Chat</button>
+                <button id="send-message">Enviar</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Creacion del Footer de la pagina -->
+    <footer class="footer">
+        <!--Redes Sociales de la formula 1 y sus simbolos-->
+        <div class="social-media">
+            <a href="https://www.instagram.com/f1/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.facebook.com/Formula1/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.tiktok.com/@f1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://x.com/f1" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+
+        <!--Derechos de autor de la pagina-->
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+        <ul>
+            <li>Cáceres Uriel - </li>
+            <li>Castillo Diego - </li>
+            <li>Correia Gustavo - </li>
+            <li>Hernandez Samuel - </li>
+            <li>Varela Edwin.</li>
+            <br><br>
+            <li>Clase de Ing de Software II.</li>
+        </ul>
+    </footer>
+
+
+    <!-- Llamada a los archivos Java Script para el funcionamiento de de la pestaña CARROS-->
+    <script src="js/script.js"></script> <!--Script para las funciones generales de esta pestaña-->
+    <script src="js/CHATBOT.js"></script> <!--Script para hacer la llamada a la API de chatbot (Gemini 2.0 flash)-->
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles-login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://wallpaperaccess.com/full/2180263.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>F1 - Official Fanpage (BETA)</title>
+</head>
+
+
+<body>
+
+
+    <!-- Contenedor del video de fondo -->
+    <div class="video-container">
+        <video id="bg-video" class="video-background" autoplay loop muted>
+            <source src="FORMULA1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+    <!-- Contenedor del Formulario de Inicio de sesión y Registro -->
+    <div class="transparent-box">
+
+        <!-- Formulario de inicio de sesión -->
+        <div class="form-container" id="login-form">
+            <br>
+
+            <h2>Iniciar Sesión</h2>
+            <input type="text" class="input-85" placeholder="Correo Electrónico" required>
+            <input type="password" class="input-85" placeholder="Contraseña" required>
+            <br>
+            <button class="button-action">Iniciar sesión</button>
+        </div>
+
+
+        <!-- Formulario de registro -->
+        <div class="form-container hidden" id="register-form">
+
+            <h2>Crear Cuenta</h2>
+            <input type="text" class="input-85" placeholder="Nombre" required>
+            <input type="text" class="input-85" placeholder="Apellido" required>
+            <input type="email" class="input-85" placeholder="Correo Electrónico" required>
+            <input type="password" class="input-85" placeholder="Contraseña" required>
+
+            <button class="button-action">Registrarse</button>
+        </div>
+
+        <!-- Botones de alternancia (más pequeños y debajo de los formularios) -->
+        <div class="button-container">
+            <button class="toggle-button" id="login-toggle">Iniciar Sesión</button>
+            <button class="toggle-button" id="register-toggle">Crear Cuenta</button>
+        </div>
+
+
+        <!-- Redes Sociales de la Fórmula 1 -->
+        <div class="social-media-container">
+            <a href="https://www.facebook.com/formula1" target="_blank" class="social-icon"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/F1" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/f1" target="_blank" class="social-icon"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/user/Formula1" target="_blank" class="social-icon"><i
+                    class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+
+
+    <!-- Botón de silenciar fuera de la caja transparente -->
+    <button id="audio-toggle" class="audio-toggle">
+        <i class="fas fa-volume-up"></i> <!-- Ícono de altavoz activado -->
+    </button>
+
+
+    <!--Script para las funcionalidades de la pagina de inicio de sesion -->
+    <script>
+        const loginToggle = document.getElementById('login-toggle'); // Botón para alternar al formulario de inicio de sesión
+        const registerToggle = document.getElementById('register-toggle'); // Botón para alternar al formulario de registro
+        const loginForm = document.getElementById('login-form'); // Contenedor del formulario de inicio de sesión
+        const registerForm = document.getElementById('register-form'); // Contenedor del formulario de registro
+        const video = document.getElementById('bg-video'); // Video de fondo
+        const audioToggle = document.getElementById('audio-toggle'); // Botón para alternar el sonido del video
+
+        // Evento para mostrar el formulario de inicio de sesión y ocultar el de registro
+        loginToggle.addEventListener('click', () => {
+            loginForm.classList.add('slide-in');
+            registerForm.classList.remove('slide-in');
+            loginForm.classList.remove('hidden'); // Muestra el formulario de inicio de sesión
+            registerForm.classList.add('hidden'); // Oculta el formulario de registro
+        });
+
+        // Evento para mostrar el formulario de registro y ocultar el de inicio de sesión
+        registerToggle.addEventListener('click', () => {
+            registerForm.classList.add('slide-in');
+            loginForm.classList.remove('slide-in');
+            registerForm.classList.remove('hidden'); // Muestra el formulario de registro
+            loginForm.classList.add('hidden'); // Oculta el formulario de inicio de sesión
+        });
+
+        // Redirigir al presionar "Iniciar sesión"
+        const loginButton = document.querySelector("#login-form .button-action"); // Botón de acción en el formulario de inicio de sesión
+        loginButton.addEventListener("click", () => {
+            window.location.href = "INICIO.html"; // Redirige a la página de inicio
+        });
+
+        // Alternar sonido del video
+        audioToggle.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false; // Activa el sonido del video
+                audioToggle.innerHTML = '<i class="fas fa-volume-up"></i>';
+            } else {
+                video.muted = true; // Silencia el video
+                audioToggle.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            }
+        });
+    </script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/STYLES.css">
+    <link rel="icon" href="https://wallpaperaccess.com/full/2180263.png" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>F1 - Official Fanpage (BETA)</title>
+
+</head>
+
+
+<body>
+
+
+    <!-- Creacion del Navbar de la pagina -->
+    <nav class="navbar">
+        <!-- Colocamos logo de la F1 en la navbar -->
+        <div class="logo"><img src="img/F1_75_Logo.png" alt="logo formula 1">
+            <ul>
+                <li><a href="INICIO.html">Inicio</a></li>
+                <li><a href="ESCUDERIAS.html">Escuderias</a></li>
+                <li><a href="CARROS.html">CARROS</a></li>
+                <li><a href="CALENDARIO.html">Calendario</a></li>
+                <li><a href="RESULTADOS.html">Resultados</a></li>
+                <li><a href="HISTORICO.html" class="active" id="historico-link">Historico</a></li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- Contenido principal de la pestaña de HISTORICO -->
+    <div class="main-content">
+        <h1>RESULTADOS HISTORICOS</h1>
+        <div class="red-line"></div>
+        <p>Aquí podrás ver los resultados históricos a través de los años.</p>
+
+        <div>
+
+            <select id="seleccionDatos" onchange="mostrarTabla(this.value)">
+
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="carrerasComenzadas">Carreras totales comenzadas</option>
+                <option value="carrerasIniciadas">Carreras totales iniciadas</option>
+                <option value="victoriasTotales">Victorias totales</option>
+                <option value="masVictorias">Más victorias en una temporada</option>
+
+            </select>
+
+        </div>
+
+        <div class="table-container" id="carrerasComenzadas">
+            <h2>
+                <center>Carreras totales comenzadas</center>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Constructor</th>
+                        <th>Carreras comenzadas</th>
+                        <th>Temporadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ferrari</td>
+                        <td>1069</td>
+                        <td>1950-actualidad</td>
+                    </tr>
+                    <tr>
+                        <td>McLaren</td>
+                        <td>941</td>
+                        <td>1966-actualidad</td>
+                    </tr>
+                    <tr>
+                        <td>Williams</td>
+                        <td>822</td>
+                        <td>1978-actualidad</td>
+                    </tr>
+                    <tr>
+                        <td>Lotus</td>
+                        <td>606</td>
+                        <td>1958-1994, 2010-2015</td>
+                    </tr>
+                    <tr>
+                        <td>Tyrrell</td>
+                        <td>430</td>
+                        <td>1970-1998</td>
+                    </tr>
+                    <tr>
+                        <td>Renault</td>
+                        <td>400</td>
+                        <td>1977-1985, 2002-2011, 2016-2020</td>
+                    </tr>
+                    <tr>
+                        <td>Brabham</td>
+                        <td>394</td>
+                        <td>1962-1987, 1989-1992</td>
+                    </tr>
+                    <tr>
+                        <td>Sauber</td>
+                        <td>373</td>
+                        <td>1993-2005, 2010-2018</td>
+                    </tr>
+                    <tr>
+                        <td>Red Bull</td>
+                        <td>364</td>
+                        <td>2005-actualidad</td>
+                    </tr>
+                    <tr>
+                        <td>Minardi</td>
+                        <td>340</td>
+                        <td>1985-2005</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="table-container" id="carrerasIniciadas">
+            <h2>
+                <center>Carreras totales iniciadas</center>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Constructor</th>
+                        <th>Carreras iniciadas</th>
+                        <th>Temporadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ferrari</td>
+                        <td>997</td>
+                        <td>1950-actualidad</td>
+                    </tr>
+                    <tr>
+                        <td>McLaren</td>
+                        <td>868</td>
+                        <td>1966-actualidad</td>
+                    </tr>
+                    <tr>
+                        <td>Williams</td>
+                        <td>751</td>
+                        <td>1978-actualidad</td>
+                    </tr>
+                    <tr>
+                        <td>Lotus</td>
+                        <td>604</td>
+                        <td>1958-1994, 2010-2015</td>
+                    </tr>
+                    <tr>
+                        <td>Tyrrell</td>
+                        <td>430</td>
+                        <td>1970-1998</td>
+                    </tr>
+                    <tr>
+                        <td>Brabham</td>
+                        <td>394</td>
+                        <td>1962-1987, 1989-1992</td>
+                    </tr>
+                    <tr>
+                        <td>Renault</td>
+                        <td>391</td>
+                        <td>1977-1985, 2002-2011, 2016-2020</td>
+                    </tr>
+                    <tr>
+                        <td>Arrows</td>
+                        <td>383</td>
+                        <td>1976-1996</td>
+                    </tr>
+                    <tr>
+                        <td>Sauber</td>
+                        <td>373</td>
+                        <td>1993-2005, 2010-2018</td>
+                    </tr>
+                    <tr>
+                        <td>Minardi</td>
+                        <td>340</td>
+                        <td>1985-2005</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="table-container" id="victoriasTotales">
+            <h2>
+                <center>Victorias totales</center>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Núm.</th>
+                        <th>Constructor</th>
+                        <th>Victorias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ferrari</td>
+                        <td>243</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>McLaren</td>
+                        <td>183</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Mercedes</td>
+                        <td>125</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Williams</td>
+                        <td>114</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Red Bull</td>
+                        <td>110</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Lotus</td>
+                        <td>81</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Brabham</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Renault</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Benetton</td>
+                        <td>27</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Tyrrell</td>
+                        <td>23</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="table-container" id="masVictorias">
+            <h2>
+                <center>Mas victorias en una temporada</center>
+            </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Constructor</th>
+                        <th>Temporada</th>
+                        <th>Carreras</th>
+                        <th>Victorias</th>
+                        <th>Porcentaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Red Bull</td>
+                        <td>2023</td>
+                        <td>22</td>
+                        <td>22</td>
+                        <td>94,45%</td>
+                    </tr>
+                    <tr>
+                        <td>Mercedes</td>
+                        <td>2016</td>
+                        <td>21</td>
+                        <td>19</td>
+                        <td>90,48%</td>
+                    </tr>
+                    <tr>
+                        <td>Red Bull</td>
+                        <td>2022</td>
+                        <td>22</td>
+                        <td>17</td>
+                        <td>77,27%</td>
+                    </tr>
+                    <tr>
+                        <td>Mercedes</td>
+                        <td>2014</td>
+                        <td>19</td>
+                        <td>16</td>
+                        <td>84,21%</td>
+                    </tr>
+                    <tr>
+                        <td>Red Bull</td>
+                        <td>2023</td>
+                        <td>22</td>
+                        <td>22</td>
+                        <td>94,45%</td>
+                    </tr>
+                    <tr>
+                        <td>McLaren</td>
+                        <td>1988</td>
+                        <td>16</td>
+                        <td>15</td>
+                        <td>93,75%</td>
+                    </tr>
+                    <tr>
+                        <td>Ferrari</td>
+                        <td>2002</td>
+                        <td>17</td>
+                        <td>15</td>
+                        <td>88,24%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- Creacion del boton y contenedor del chat con IA -->
+    <div id="chatbot-container">
+        <button id="chatbot-button">💬</button>
+
+        <div id="chatbox" class="hidden">
+
+            <div id="chatbox-header">EscuderIA</div>
+            <div id="chatbox-messages"></div>
+            <input type="text" id="chatbox-input" placeholder="Escribe tu mensaje...">
+
+            <div id="chatbox-controls">
+                <button id="new-chat">Nuevo Chat</button>
+                <button id="send-message">Enviar</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Creacion del Footer de la pagina -->
+    <footer class="footer">
+        <!--Redes Sociales de la formula 1 y sus simbolos-->
+        <div class="social-media">
+            <a href="https://www.instagram.com/f1/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.facebook.com/Formula1/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.tiktok.com/@f1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+            <a href="https://x.com/f1" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+        </div>
+
+        <!--Derechos de autor de la pagina-->
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+        <ul>
+            <li>Cáceres Uriel - </li>
+            <li>Castillo Diego - </li>
+            <li>Correia Gustavo - </li>
+            <li>Hernandez Samuel - </li>
+            <li>Varela Edwin.</li>
+            <br><br>
+            <li>Clase de Ing de Software II.</li>
+        </ul>
+    </footer>
+
+
+    <!--Pequeño script para manejar el mostrar/ocultar de algunas funciones de esta pestaña-->
+    <script>
+
+        // Función para mostrar las opciones del selector
+        function mostrarOpciones() {
+            document.getElementById("seleccionDatos").style.display = "block";
+        }
+
+        // Función para mostrar una tabla específica según el ID proporcionado
+        function mostrarTabla(tablaId) {
+            // Selecciona todas las tablas con la clase 'table-container'
+            var tablas = document.querySelectorAll('.table-container');
+
+            // Oculta todas las tablas
+            tablas.forEach(tabla => tabla.style.display = 'none');
+
+            // Si se proporciona un ID válido, muestra la tabla correspondiente
+            if (tablaId) {
+                document.getElementById(tablaId).style.display = 'block';
+            } else {
+                // Opcional: Oculta todas las tablas si se selecciona la opción por defecto
+                tablas.forEach(tabla => tabla.style.display = 'none');
+            }
+        }
+
+        // Oculta todas las tablas al cargar la página
+        window.onload = function () {
+            mostrarTabla(null);
+        };
+
+    </script>
+
+
+    <!-- Llamada a los archivos Java Script para el funcionamiento de de la pestaña HISTORICO-->
+    <script src="js/CHATBOT.js"></script> <!--Script para hacer la llamada a la API de chatbot (Gemini 2.0 flash)-->
+
+
+</body>
+
+
+</html>
